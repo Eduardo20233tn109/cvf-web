@@ -55,23 +55,53 @@ const GestionUsuarios = () => {
   };
 
   return (
-    <div style={{ display: 'flex' }}>
-      <div style={{ flexGrow: 1, backgroundColor: '#D9D7CC', maxHeight: '100vh', width: '100%' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '2rem' }}>
-          <h2 style={{ textAlign: 'center', color: 'black' }}>Gestión de Usuarios</h2>
+    <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+      <div style={{ flexGrow: 1, minHeight: '100vh', width: '100%', display: 'flex', justifyContent: 'center' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '2.5rem 2rem', maxWidth: '1200px', width: '100%' }}>
+          <h2 style={{ 
+            textAlign: 'center', 
+            fontSize: '36px',
+            fontWeight: 700,
+            color: '#0f172a',
+            marginBottom: '28px',
+            marginTop: '0',
+            letterSpacing: '0.3px',
+          }}>
+            Gestión de Usuarios
+          </h2>
 
           <div style={{
-            background: '#F1F1F1',
-            borderRadius: '20px',
-            boxShadow: '0 3px 6px rgba(0,0,0,0.16)',
-            padding: '1.5rem',
-            width: '90%',
-            maxWidth: '900px'
+            background: 'rgba(255, 255, 255, 0.98)',
+            borderRadius: '28px',
+            boxShadow: '0 10px 40px rgba(15, 23, 42, 0.1)',
+            padding: '2.5rem',
+            width: '100%',
+            maxWidth: '1100px',
+            backdropFilter: 'blur(20px) saturate(180%)',
+            border: '1px solid #e2e8f0',
+            transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
           }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
               <CrearButton onClick={() => setOpenCreateModal(true)} />
               <div style={{ display: "flex", gap: "1rem" }}>
-                <FormControl sx={{ minWidth: 150 }}>
+                <FormControl sx={{ 
+                  minWidth: 180,
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '12px',
+                    transition: 'all 0.3s ease',
+                    backgroundColor: '#fff',
+                    '&:hover fieldset': {
+                      borderColor: '#14b8a6',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#14b8a6',
+                    }
+                  },
+                  '& .MuiInputLabel-root.Mui-focused': {
+                    color: '#14b8a6',
+                    fontWeight: 600,
+                  }
+                }}>
                   <InputLabel>Filtrar por estado</InputLabel>
                   <Select
                     value={statusFilter}
@@ -84,7 +114,24 @@ const GestionUsuarios = () => {
                   </Select>
                 </FormControl>
 
-                <FormControl sx={{ minWidth: 150 }}>
+                <FormControl sx={{ 
+                  minWidth: 180,
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '12px',
+                    transition: 'all 0.3s ease',
+                    backgroundColor: '#fff',
+                    '&:hover fieldset': {
+                      borderColor: '#14b8a6',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#14b8a6',
+                    }
+                  },
+                  '& .MuiInputLabel-root.Mui-focused': {
+                    color: '#14b8a6',
+                    fontWeight: 600,
+                  }
+                }}>
                   <InputLabel>Filtrar por rol</InputLabel>
                   <Select
                     value={roleFilter}

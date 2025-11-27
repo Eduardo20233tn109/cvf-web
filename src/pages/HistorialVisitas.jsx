@@ -61,11 +61,22 @@ const HistorialVisitas = () => {
 
   return (
     <Box p={4}>
-      <Typography variant="h4" fontWeight="bold" color="#4D5637" mb={2}>
+      <Typography 
+        variant="h4" 
+        fontWeight={700}
+        mb={3}
+        color="#0f172a"
+      >
         Historial de Visitas
       </Typography>
 
-      <Paper elevation={3} sx={{ p: 3, borderRadius: 2 }}>
+      <Paper elevation={0} sx={{ 
+        p: 3, 
+        borderRadius: 3,
+        background: '#ffffff',
+        boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+        border: '1px solid #e2e8f0',
+      }}>
         <Box display="flex" justifyContent="space-between" alignItems="center" mb={3} flexWrap="wrap" gap={2}>
           <Typography variant="h6">Filtrar por estado:</Typography>
           <FormControl sx={{ minWidth: 200 }} size="small">
@@ -86,12 +97,54 @@ const HistorialVisitas = () => {
 
         <Table>
           <TableHead>
-            <TableRow>
-              <TableCell><strong>Visitante</strong></TableCell>
-              <TableCell><strong>Personas</strong></TableCell>
-              <TableCell><strong>Fecha</strong></TableCell>
-              <TableCell><strong>Tipo</strong></TableCell>
-              <TableCell><strong>Estado</strong></TableCell>
+            <TableRow sx={{
+              background: '#0f172a',
+            }}>
+              <TableCell sx={{ 
+                color: 'white', 
+                fontWeight: 600, 
+                fontSize: '13px',
+                letterSpacing: '0.5px',
+                textTransform: 'uppercase',
+              }}>
+                Visitante
+              </TableCell>
+              <TableCell sx={{ 
+                color: 'white', 
+                fontWeight: 600, 
+                fontSize: '13px',
+                letterSpacing: '0.5px',
+                textTransform: 'uppercase',
+              }}>
+                Personas
+              </TableCell>
+              <TableCell sx={{ 
+                color: 'white', 
+                fontWeight: 600, 
+                fontSize: '13px',
+                letterSpacing: '0.5px',
+                textTransform: 'uppercase',
+              }}>
+                Fecha
+              </TableCell>
+              <TableCell sx={{ 
+                color: 'white', 
+                fontWeight: 600, 
+                fontSize: '13px',
+                letterSpacing: '0.5px',
+                textTransform: 'uppercase',
+              }}>
+                Tipo
+              </TableCell>
+              <TableCell sx={{ 
+                color: 'white', 
+                fontWeight: 600, 
+                fontSize: '13px',
+                letterSpacing: '0.5px',
+                textTransform: 'uppercase',
+              }}>
+                Estado
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -105,13 +158,31 @@ const HistorialVisitas = () => {
               </TableRow>
             ) : (
               visitas.map((v) => (
-                <TableRow key={v._id}>
-                  <TableCell>{v.nombreVisitante}</TableCell>
-                  <TableCell>{v.numeroPersonas}</TableCell>
-                  <TableCell>{new Date(v.fecha).toLocaleString()}</TableCell>
-                  <TableCell>{v.tipoVisita}</TableCell>
+                <TableRow 
+                  key={v._id}
+                  sx={{
+                    transition: 'all 0.2s ease',
+                    '&:hover': {
+                      background: 'linear-gradient(90deg, rgba(102, 126, 234, 0.05), transparent)',
+                      transform: 'scale(1.01)',
+                    }
+                  }}
+                >
+                  <TableCell sx={{ fontWeight: 600 }}>{v.nombreVisitante}</TableCell>
+                  <TableCell sx={{ color: '#64748b' }}>{v.numeroPersonas}</TableCell>
+                  <TableCell sx={{ color: '#64748b' }}>{new Date(v.fecha).toLocaleString()}</TableCell>
+                  <TableCell sx={{ fontWeight: 600 }}>{v.tipoVisita}</TableCell>
                   <TableCell>
-                    <Chip label={v.estado} color={getColor(v.estado)} />
+                    <Chip 
+                      label={v.estado} 
+                      color={getColor(v.estado)}
+                      sx={{
+                        fontWeight: 700,
+                        fontSize: '13px',
+                        borderRadius: '20px',
+                        padding: '6px 4px',
+                      }}
+                    />
                   </TableCell>
                 </TableRow>
               ))

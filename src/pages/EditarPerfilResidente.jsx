@@ -12,7 +12,8 @@ import {
 } from "@mui/material";
 import axios from "axios";
 
-const verdeCVF = "#4D5637";
+const primaryColor = "#14b8a6";
+const secondaryColor = "#06b6d4";
 
 const PerfilResidente = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -114,14 +115,25 @@ const PerfilResidente = () => {
 
   return (
     <Box p={4}>
-      <Typography variant="h4" fontWeight="bold" color={verdeCVF} mb={1}>
+      <Typography 
+        variant="h4" 
+        fontWeight={700}
+        mb={1}
+        color="#0f172a"
+      >
         Mi Perfil
       </Typography>
-      <Typography variant="subtitle1" color="textSecondary" mb={4}>
+      <Typography variant="h6" color="#64748b" mb={4} fontWeight={500}>
         Visualiza y actualiza tu información personal.
       </Typography>
 
-      <Paper elevation={4} sx={{ p: 4, borderRadius: 3 }}>
+      <Paper elevation={0} sx={{ 
+        p: 4, 
+        borderRadius: 3,
+        background: '#ffffff',
+        boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+        border: '1px solid #e2e8f0',
+      }}>
         <form onSubmit={handleSubmit}>
           <Grid container spacing={4}>
             {/* Columna izquierda: Avatar + dirección */}
@@ -163,6 +175,22 @@ const PerfilResidente = () => {
                     value={formData.nombre}
                     onChange={handleChange}
                     required
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        borderRadius: '12px',
+                        transition: 'all 0.3s ease',
+                        '&:hover': {
+                          boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                        },
+                        '&.Mui-focused': {
+                          boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                        }
+                      },
+                      '& .MuiInputLabel-root.Mui-focused': {
+                        color: '#667eea',
+                        fontWeight: 600,
+                      }
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -173,6 +201,22 @@ const PerfilResidente = () => {
                     value={formData.apellido}
                     onChange={handleChange}
                     required
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        borderRadius: '12px',
+                        transition: 'all 0.3s ease',
+                        '&:hover': {
+                          boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                        },
+                        '&.Mui-focused': {
+                          boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                        }
+                      },
+                      '& .MuiInputLabel-root.Mui-focused': {
+                        color: '#667eea',
+                        fontWeight: 600,
+                      }
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -183,6 +227,22 @@ const PerfilResidente = () => {
                     value={formData.username}
                     onChange={handleChange}
                     required
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        borderRadius: '12px',
+                        transition: 'all 0.3s ease',
+                        '&:hover': {
+                          boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                        },
+                        '&.Mui-focused': {
+                          boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                        }
+                      },
+                      '& .MuiInputLabel-root.Mui-focused': {
+                        color: '#667eea',
+                        fontWeight: 600,
+                      }
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -193,6 +253,22 @@ const PerfilResidente = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     required
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        borderRadius: '12px',
+                        transition: 'all 0.3s ease',
+                        '&:hover': {
+                          boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                        },
+                        '&.Mui-focused': {
+                          boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                        }
+                      },
+                      '& .MuiInputLabel-root.Mui-focused': {
+                        color: '#667eea',
+                        fontWeight: 600,
+                      }
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -204,6 +280,22 @@ const PerfilResidente = () => {
                     InputLabelProps={{ shrink: true }}
                     value={formData.birthday}
                     onChange={handleChange}
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        borderRadius: '12px',
+                        transition: 'all 0.3s ease',
+                        '&:hover': {
+                          boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                        },
+                        '&.Mui-focused': {
+                          boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                        }
+                      },
+                      '& .MuiInputLabel-root.Mui-focused': {
+                        color: '#667eea',
+                        fontWeight: 600,
+                      }
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -212,11 +304,19 @@ const PerfilResidente = () => {
                     variant="contained"
                     fullWidth
                     sx={{
-                      bgcolor: verdeCVF,
+                      background: 'linear-gradient(135deg, #14b8a6, #06b6d4)',
                       color: "#fff",
-                      fontWeight: "bold",
+                      fontWeight: 700,
+                      fontSize: '15px',
+                      padding: '14px',
+                      borderRadius: '12px',
+                      letterSpacing: '0.5px',
+                      boxShadow: '0 4px 14px rgba(20, 184, 166, 0.4)',
+                      transition: 'all 0.3s ease',
                       "&:hover": {
-                        bgcolor: "#3a4f2e"
+                        background: 'linear-gradient(135deg, #0d9488, #0891b2)',
+                        transform: 'translateY(-2px)',
+                        boxShadow: '0 8px 24px rgba(20, 184, 166, 0.5)',
                       }
                     }}
                   >

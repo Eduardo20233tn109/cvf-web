@@ -12,7 +12,8 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const verdeCVF = "#4D5637";
+const primaryColor = "#14b8a6";
+const secondaryColor = "#06b6d4";
 
 const GenerarVisita = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -65,8 +66,19 @@ const GenerarVisita = () => {
 
   return (
     <Box maxWidth="md" mx="auto" p={4}>
-      <Paper elevation={4} sx={{ p: 4, borderRadius: 3 }}>
-        <Typography variant="h4" fontWeight="bold" color={verdeCVF} mb={3}>
+      <Paper elevation={0} sx={{ 
+        p: 4, 
+        borderRadius: 3,
+        background: '#ffffff',
+        boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+        border: '1px solid #e2e8f0',
+      }}>
+        <Typography 
+          variant="h4" 
+          fontWeight={700}
+          mb={3}
+          color="#0f172a"
+        >
           Crear Nueva Visita
         </Typography>
 
@@ -82,6 +94,22 @@ const GenerarVisita = () => {
                 value={formData.fecha}
                 onChange={handleChange}
                 required
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '12px',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                    },
+                    '&.Mui-focused': {
+                      boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                    }
+                  },
+                  '& .MuiInputLabel-root.Mui-focused': {
+                    color: '#667eea',
+                    fontWeight: 600,
+                  }
+                }}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -94,6 +122,22 @@ const GenerarVisita = () => {
                 value={formData.hora}
                 onChange={handleChange}
                 required
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '12px',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                    },
+                    '&.Mui-focused': {
+                      boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                    }
+                  },
+                  '& .MuiInputLabel-root.Mui-focused': {
+                    color: '#667eea',
+                    fontWeight: 600,
+                  }
+                }}
               />
             </Grid>
 
@@ -106,6 +150,22 @@ const GenerarVisita = () => {
                 value={formData.numeroPersonas}
                 onChange={handleChange}
                 required
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '12px',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                    },
+                    '&.Mui-focused': {
+                      boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                    }
+                  },
+                  '& .MuiInputLabel-root.Mui-focused': {
+                    color: '#667eea',
+                    fontWeight: 600,
+                  }
+                }}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -116,6 +176,22 @@ const GenerarVisita = () => {
                 value={formData.nombreVisitante}
                 onChange={handleChange}
                 required
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '12px',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                    },
+                    '&.Mui-focused': {
+                      boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                    }
+                  },
+                  '& .MuiInputLabel-root.Mui-focused': {
+                    color: '#667eea',
+                    fontWeight: 600,
+                  }
+                }}
               />
             </Grid>
 
@@ -129,6 +205,22 @@ const GenerarVisita = () => {
                 value={formData.descripcion}
                 onChange={handleChange}
                 required
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '12px',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                    },
+                    '&.Mui-focused': {
+                      boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                    }
+                  },
+                  '& .MuiInputLabel-root.Mui-focused': {
+                    color: '#667eea',
+                    fontWeight: 600,
+                  }
+                }}
               />
             </Grid>
 
@@ -148,12 +240,18 @@ const GenerarVisita = () => {
                     value={tipo}
                     sx={{
                       textTransform: "none",
-                      fontWeight: "bold",
-                      bgcolor: formData.tipoVisita === tipo ? verdeCVF : "transparent",
-                      color: formData.tipoVisita === tipo ? "#fff" : verdeCVF,
-                      borderColor: verdeCVF,
+                      fontWeight: 600,
+                      borderRadius: '10px',
+                      background: formData.tipoVisita === tipo 
+                        ? 'linear-gradient(135deg, #14b8a6, #06b6d4)' 
+                        : "transparent",
+                      color: formData.tipoVisita === tipo ? "#fff" : primaryColor,
+                      borderColor: primaryColor,
+                      transition: 'all 0.3s ease',
                       "&:hover": {
-                        bgcolor: formData.tipoVisita === tipo ? verdeCVF : "#f5f5f5"
+                        background: formData.tipoVisita === tipo 
+                          ? 'linear-gradient(135deg, #0d9488, #0891b2)'
+                          : "rgba(20, 184, 166, 0.1)"
                       }
                     }}
                   >
@@ -171,6 +269,22 @@ const GenerarVisita = () => {
                 value={formData.placasVehiculo}
                 onChange={handleChange}
                 placeholder="000-00-00"
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '12px',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                    },
+                    '&.Mui-focused': {
+                      boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                    }
+                  },
+                  '& .MuiInputLabel-root.Mui-focused': {
+                    color: '#667eea',
+                    fontWeight: 600,
+                  }
+                }}
               />
             </Grid>
 
@@ -180,6 +294,12 @@ const GenerarVisita = () => {
                 label="Dirección"
                 value={direccion}
                 disabled
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '12px',
+                    backgroundColor: '#f8fafc',
+                  }
+                }}
               />
             </Grid>
 
@@ -192,6 +312,22 @@ const GenerarVisita = () => {
                 value={formData.contrasena}
                 onChange={handleChange}
                 required
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '12px',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                    },
+                    '&.Mui-focused': {
+                      boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                    }
+                  },
+                  '& .MuiInputLabel-root.Mui-focused': {
+                    color: '#667eea',
+                    fontWeight: 600,
+                  }
+                }}
               />
             </Grid>
 
@@ -204,6 +340,22 @@ const GenerarVisita = () => {
                 value={formData.confirmarContrasena}
                 onChange={handleChange}
                 required
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '12px',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                    },
+                    '&.Mui-focused': {
+                      boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                    }
+                  },
+                  '& .MuiInputLabel-root.Mui-focused': {
+                    color: '#667eea',
+                    fontWeight: 600,
+                  }
+                }}
               />
             </Grid>
 
@@ -225,11 +377,19 @@ const GenerarVisita = () => {
                 variant="contained"
                 fullWidth
                 sx={{
-                  bgcolor: verdeCVF,
+                  background: 'linear-gradient(135deg, #14b8a6, #06b6d4)',
                   color: "#fff",
-                  fontWeight: "bold",
+                  fontWeight: 700,
+                  fontSize: '15px',
+                  padding: '14px',
+                  borderRadius: '12px',
+                  letterSpacing: '0.5px',
+                  boxShadow: '0 4px 14px rgba(20, 184, 166, 0.4)',
+                  transition: 'all 0.3s ease',
                   "&:hover": {
-                    bgcolor: "#3a4f2e"
+                    background: 'linear-gradient(135deg, #0d9488, #0891b2)',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 8px 24px rgba(20, 184, 166, 0.5)',
                   }
                 }}
               >

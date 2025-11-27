@@ -1,0 +1,290 @@
+/* ====================================
+   ANIMACIONES PREMIUM
+   ==================================== */
+
+/* Animación de resplandor pulsante */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(102, 126, 234, 0.6), 0 0 60px rgba(118, 75, 162, 0.4);
+  }
+}
+
+/* Animación de brillo deslizante */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Animación de flotación suave */
+@keyframes float-smooth {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Animación de escala pulsante */
+@keyframes pulse-scale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* Animación de entrada con desvanecimiento */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación de entrada con zoom */
+@keyframes zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animación de rotación de gradiente */
+@keyframes gradient-rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animación de onda */
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+  75% {
+    transform: translateY(10px) rotate(-5deg);
+  }
+}
+
+/* Animación de rebote suave */
+@keyframes soft-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+}
+
+/* Animación de aparición de badge */
+@keyframes badge-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Animación de resplandor al hover */
+@keyframes hover-glow {
+  from {
+    filter: drop-shadow(0 0 0px rgba(102, 126, 234, 0));
+  }
+  to {
+    filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.8));
+  }
+}
+
+/* Clases de utilidad para aplicar animaciones */
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out;
+}
+
+.animate-zoom-in {
+  animation: zoom-in 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-float {
+  animation: float-smooth 3s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Transiciones suaves globales mejoradas */
+.smooth-transition {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.smooth-transform {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.smooth-shadow {
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efectos de hover premium */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.35);
+}
+
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(102, 126, 234, 0.6),
+              0 0 60px rgba(118, 75, 162, 0.4);
+}
+
+/* Efecto de cristal mejorado */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 20px 80px -20px rgba(102, 126, 234, 0.35),
+              0 10px 40px -10px rgba(118, 75, 162, 0.25),
+              0 0 0 1px rgba(255, 255, 255, 0.8),
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Efecto de gradiente animado */
+.gradient-animated {
+  background: linear-gradient(
+    135deg,
+    #667eea 0%,
+    #764ba2 25%,
+    #667eea 50%,
+    #764ba2 75%,
+    #667eea 100%
+  );
+  background-size: 400% 400%;
+  animation: gradient-rotate 15s ease infinite;
+}
+
+/* Sombras premium */
+.shadow-premium-sm {
+  box-shadow: 0 4px 16px -4px rgba(102, 126, 234, 0.3),
+              0 2px 8px -2px rgba(118, 75, 162, 0.2);
+}
+
+.shadow-premium-md {
+  box-shadow: 0 10px 40px -10px rgba(102, 126, 234, 0.4),
+              0 4px 16px -4px rgba(118, 75, 162, 0.3),
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+}
+
+.shadow-premium-lg {
+  box-shadow: 0 20px 80px -20px rgba(102, 126, 234, 0.5),
+              0 10px 40px -10px rgba(118, 75, 162, 0.4),
+              0 0 0 1px rgba(255, 255, 255, 0.8),
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Borde con resplandor */
+.border-glow {
+  border: 2px solid transparent;
+  background: 
+    linear-gradient(white, white) padding-box,
+    linear-gradient(135deg, #667eea, #764ba2) border-box;
+}
+
+/* Texto con gradiente */
+.text-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Efecto de botón premium */
+.button-premium {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 10px 30px -8px rgba(102, 126, 234, 0.7),
+              0 4px 16px -4px rgba(118, 75, 162, 0.5),
+              inset 0 2px 0 0 rgba(255, 255, 255, 0.25);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button-premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.6s;
+}
+
+.button-premium:hover::before {
+  left: 100%;
+}
+
+.button-premium:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 40px -8px rgba(102, 126, 234, 0.8),
+              0 8px 24px -4px rgba(118, 75, 162, 0.6),
+              inset 0 2px 0 0 rgba(255, 255, 255, 0.3),
+              0 0 40px rgba(102, 126, 234, 0.5);
+}
+
+.button-premium:active {
+  transform: translateY(-1px) scale(0.98);
+}
+

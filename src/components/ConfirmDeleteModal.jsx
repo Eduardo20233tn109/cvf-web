@@ -48,7 +48,18 @@ const ConfirmDeleteModal = ({
   return (
     <>
       {/* Modal de Confirmación */}
-      <Dialog open={open} onClose={onClose} maxWidth="xs" fullWidth>
+      <Dialog 
+        open={open} 
+        onClose={onClose} 
+        maxWidth="xs" 
+        fullWidth
+        PaperProps={{
+          sx: {
+            borderRadius: '20px',
+            boxShadow: '0 20px 60px rgba(0,0,0,0.2)',
+          }
+        }}
+      >
         <DialogTitle sx={{ textAlign: "center" }}>
           <Box display="flex" justifyContent="center">
             <motion.div
@@ -80,17 +91,31 @@ const ConfirmDeleteModal = ({
           </Typography>
         </DialogContent>
 
-        <DialogActions sx={{ justifyContent: "center", mb: 2 }}>
+        <DialogActions sx={{ justifyContent: "center", mb: 3, gap: 2 }}>
           <Button
             variant="contained"
             onClick={handleConfirm}
             sx={{
-              backgroundColor: esActivar ? "#28a745" : "#d9534f",
+              background: esActivar 
+                ? 'linear-gradient(135deg, #10b981, #059669)' 
+                : 'linear-gradient(135deg, #ef4444, #dc2626)',
               color: "white",
-              borderRadius: "5px",
-              padding: "6px 16px",
+              fontWeight: 700,
+              borderRadius: "12px",
+              padding: "12px 28px",
+              letterSpacing: '0.5px',
+              boxShadow: esActivar
+                ? '0 8px 20px rgba(16, 185, 129, 0.4)'
+                : '0 8px 20px rgba(239, 68, 68, 0.4)',
+              transition: 'all 0.3s ease',
               '&:hover': {
-                backgroundColor: esActivar ? "#218838" : "#c82333",
+                background: esActivar 
+                  ? 'linear-gradient(135deg, #059669, #047857)' 
+                  : 'linear-gradient(135deg, #dc2626, #b91c1c)',
+                transform: 'translateY(-2px)',
+                boxShadow: esActivar
+                  ? '0 12px 28px rgba(16, 185, 129, 0.5)'
+                  : '0 12px 28px rgba(239, 68, 68, 0.5)',
               }
             }}
           >
@@ -100,12 +125,17 @@ const ConfirmDeleteModal = ({
             variant="outlined"
             onClick={onClose}
             sx={{
-              color: "#007bff",
-              borderColor: "#007bff",
-              borderRadius: "5px",
-              padding: "6px 16px",
+              borderColor: '#64748b',
+              color: '#64748b',
+              fontWeight: 700,
+              borderRadius: "12px",
+              padding: "12px 28px",
+              letterSpacing: '0.5px',
+              transition: 'all 0.3s ease',
               '&:hover': {
-                backgroundColor: "#f1f1f1"
+                borderColor: '#475569',
+                background: 'rgba(100, 116, 139, 0.1)',
+                transform: 'translateY(-2px)',
               }
             }}
           >

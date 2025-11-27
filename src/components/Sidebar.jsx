@@ -45,8 +45,8 @@ function Sidebar({ isOpen, toggleSidebar }) {
         sx={{
           width: isOpen ? 0 : 80,
           height: "100vh",
-          backgroundColor: "#7a4d2b",
-          transition: "width 0.3s ease-in-out",
+          background: "#0f172a",
+          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
           display: "flex",
           alignItems: "flex-start",
           justifyContent: "center",
@@ -54,10 +54,23 @@ function Sidebar({ isOpen, toggleSidebar }) {
           top: 0,
           left: 0,
           zIndex: 1201,
+          boxShadow: "4px 0 20px rgba(0, 0, 0, 0.2)",
+          borderRight: "1px solid rgba(20, 184, 166, 0.3)",
         }}
       >
-        <IconButton onClick={toggleSidebar} sx={{ color: "white" }}>
-          <MenuIcon sx={{ fontSize: "30px" }} />
+        <IconButton 
+          onClick={toggleSidebar} 
+          sx={{ 
+            color: "white",
+            marginTop: "15px",
+            transition: "all 0.3s ease",
+            "&:hover": {
+              background: "rgba(20, 184, 166, 0.2)",
+              transform: "scale(1.1)",
+            }
+          }}
+        >
+          <MenuIcon sx={{ fontSize: "32px" }} />
         </IconButton>
       </Box>
 
@@ -68,11 +81,13 @@ function Sidebar({ isOpen, toggleSidebar }) {
         onClose={toggleSidebar}
         sx={{
           "& .MuiDrawer-paper": {
-            width: 320,
-            backgroundColor: "#7a4d2b",
+            width: 280,
+            background: "#0f172a",
             color: "white",
-            transition: "width 0.3s ease-in-out",
+            transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
             zIndex: 1202,
+            boxShadow: "4px 0 30px rgba(0, 0, 0, 0.4)",
+            borderRight: "1px solid rgba(20, 184, 166, 0.3)",
           },
         }}
       >
@@ -94,11 +109,27 @@ function Sidebar({ isOpen, toggleSidebar }) {
                     navigate("/users");
                     toggleSidebar();
                   }}
+                  sx={{
+                    margin: "8px 12px",
+                    borderRadius: "10px",
+                    transition: "all 0.3s ease",
+                    "&:hover": {
+                      background: "linear-gradient(135deg, #14b8a6, #06b6d4)",
+                      transform: "translateX(6px)",
+                      boxShadow: "0 4px 12px rgba(20, 184, 166, 0.5)",
+                    }
+                  }}
                 >
                   <ListItemIcon>
-                    <PeopleIcon sx={{ color: "white" }} />
+                    <PeopleIcon sx={{ color: "white", fontSize: "26px" }} />
                   </ListItemIcon>
-                  <ListItemText primary="Usuarios" />
+                  <ListItemText 
+                    primary="Usuarios" 
+                    primaryTypographyProps={{ 
+                      fontWeight: 600,
+                      fontSize: "15px"
+                    }}
+                  />
                 </ListItem>
                 <ListItem
                   button
@@ -106,11 +137,27 @@ function Sidebar({ isOpen, toggleSidebar }) {
                     navigate("/houses");
                     toggleSidebar();
                   }}
+                  sx={{
+                    margin: "8px 12px",
+                    borderRadius: "10px",
+                    transition: "all 0.3s ease",
+                    "&:hover": {
+                      background: "linear-gradient(135deg, #14b8a6, #06b6d4)",
+                      transform: "translateX(6px)",
+                      boxShadow: "0 4px 12px rgba(20, 184, 166, 0.5)",
+                    }
+                  }}
                 >
                   <ListItemIcon>
-                    <ApartmentIcon sx={{ color: "white" }} />
+                    <ApartmentIcon sx={{ color: "white", fontSize: "26px" }} />
                   </ListItemIcon>
-                  <ListItemText primary="Residencias" />
+                  <ListItemText 
+                    primary="Residencias"
+                    primaryTypographyProps={{ 
+                      fontWeight: 600,
+                      fontSize: "15px"
+                    }}
+                  />
                 </ListItem>
               </>
             )}
@@ -124,11 +171,27 @@ function Sidebar({ isOpen, toggleSidebar }) {
                     navigate("/residente/dashboard");
                     toggleSidebar();
                   }}
+                  sx={{
+                    margin: "8px 12px",
+                    borderRadius: "10px",
+                    transition: "all 0.3s ease",
+                    "&:hover": {
+                      background: "linear-gradient(135deg, #14b8a6, #06b6d4)",
+                      transform: "translateX(6px)",
+                      boxShadow: "0 4px 12px rgba(20, 184, 166, 0.5)",
+                    }
+                  }}
                 >
                   <ListItemIcon>
-                    <HomeIcon sx={{ color: "white" }} />
+                    <HomeIcon sx={{ color: "white", fontSize: "26px" }} />
                   </ListItemIcon>
-                  <ListItemText primary="Inicio" />
+                  <ListItemText 
+                    primary="Inicio"
+                    primaryTypographyProps={{ 
+                      fontWeight: 600,
+                      fontSize: "15px"
+                    }}
+                  />
                 </ListItem>
                 <ListItem
                   button
@@ -136,11 +199,27 @@ function Sidebar({ isOpen, toggleSidebar }) {
                     navigate("/residente/generar-visita");
                     toggleSidebar();
                   }}
+                  sx={{
+                    margin: "8px 12px",
+                    borderRadius: "10px",
+                    transition: "all 0.3s ease",
+                    "&:hover": {
+                      background: "linear-gradient(135deg, #14b8a6, #06b6d4)",
+                      transform: "translateX(6px)",
+                      boxShadow: "0 4px 12px rgba(20, 184, 166, 0.5)",
+                    }
+                  }}
                 >
                   <ListItemIcon>
-                    <AssignmentIcon sx={{ color: "white" }} />
+                    <AssignmentIcon sx={{ color: "white", fontSize: "26px" }} />
                   </ListItemIcon>
-                  <ListItemText primary="Generar visita" />
+                  <ListItemText 
+                    primary="Generar visita"
+                    primaryTypographyProps={{ 
+                      fontWeight: 600,
+                      fontSize: "15px"
+                    }}
+                  />
                 </ListItem>
                 <ListItem
                   button
@@ -148,11 +227,27 @@ function Sidebar({ isOpen, toggleSidebar }) {
                     navigate("/residente/historial");
                     toggleSidebar();
                   }}
+                  sx={{
+                    margin: "8px 12px",
+                    borderRadius: "10px",
+                    transition: "all 0.3s ease",
+                    "&:hover": {
+                      background: "linear-gradient(135deg, #14b8a6, #06b6d4)",
+                      transform: "translateX(6px)",
+                      boxShadow: "0 4px 12px rgba(20, 184, 166, 0.5)",
+                    }
+                  }}
                 >
                   <ListItemIcon>
-                    <HistoryIcon sx={{ color: "white" }} />
+                    <HistoryIcon sx={{ color: "white", fontSize: "26px" }} />
                   </ListItemIcon>
-                  <ListItemText primary="Historial" />
+                  <ListItemText 
+                    primary="Historial"
+                    primaryTypographyProps={{ 
+                      fontWeight: 600,
+                      fontSize: "15px"
+                    }}
+                  />
                 </ListItem>
                 <ListItem
                   button
@@ -160,11 +255,27 @@ function Sidebar({ isOpen, toggleSidebar }) {
                     navigate("/residente/perfil");
                     toggleSidebar();
                   }}
+                  sx={{
+                    margin: "8px 12px",
+                    borderRadius: "10px",
+                    transition: "all 0.3s ease",
+                    "&:hover": {
+                      background: "linear-gradient(135deg, #14b8a6, #06b6d4)",
+                      transform: "translateX(6px)",
+                      boxShadow: "0 4px 12px rgba(20, 184, 166, 0.5)",
+                    }
+                  }}
                 >
                   <ListItemIcon>
-                    <PersonIcon sx={{ color: "white" }} />
+                    <PersonIcon sx={{ color: "white", fontSize: "26px" }} />
                   </ListItemIcon>
-                  <ListItemText primary="Mi Perfil" />
+                  <ListItemText 
+                    primary="Mi Perfil"
+                    primaryTypographyProps={{ 
+                      fontWeight: 600,
+                      fontSize: "15px"
+                    }}
+                  />
                 </ListItem>
               </>
             )}

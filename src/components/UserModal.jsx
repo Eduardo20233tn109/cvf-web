@@ -125,12 +125,32 @@ const UserModal = ({ open, onClose, onUserAdded }) => {
   };
 
   return (
-    <Dialog open={open} onClose={onClose} maxWidth="md" fullWidth>
-      <DialogTitle sx={{ textAlign: "center", fontWeight: "bold", backgroundColor: "#f5f5f5" }}>
+    <Dialog 
+      open={open} 
+      onClose={onClose} 
+      maxWidth="md" 
+      fullWidth
+      PaperProps={{
+        sx: {
+          borderRadius: '20px',
+          boxShadow: '0 20px 60px rgba(0,0,0,0.2)',
+        }
+      }}
+    >
+      <DialogTitle sx={{ 
+        textAlign: "center", 
+        fontWeight: 800,
+        fontSize: '28px',
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        backgroundClip: 'text',
+        pt: 3,
+      }}>
         Registro de Usuario
       </DialogTitle>
-      <Divider sx={{ backgroundColor: "#ccc", height: "1px", mb: 2 }} />
-      <DialogContent sx={{ px: 3, pt: 2, pb: 3, backgroundColor: "#fff" }}>
+      <Divider sx={{ backgroundColor: "rgba(102, 126, 234, 0.2)", height: "2px", mb: 2 }} />
+      <DialogContent sx={{ px: 4, pt: 2, pb: 4, backgroundColor: "#fff" }}>
         <Formik
           initialValues={{
             nombre: "", apellido: "", username: "", password: "",
@@ -194,11 +214,47 @@ const UserModal = ({ open, onClose, onUserAdded }) => {
                 </Grid>
               </Grid>
 
-              <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
-                <Button onClick={onClose} variant="contained" sx={{ backgroundColor: "#d9534f", mr: 3 }}>
+              <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mt: 4 }}>
+                <Button 
+                  onClick={onClose} 
+                  variant="outlined"
+                  sx={{ 
+                    borderColor: '#ef4444',
+                    color: '#ef4444',
+                    fontWeight: 700,
+                    borderRadius: '12px',
+                    padding: '12px 32px',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      borderColor: '#dc2626',
+                      background: 'rgba(239, 68, 68, 0.1)',
+                      transform: 'translateY(-2px)',
+                    }
+                  }}
+                >
                   Cancelar
                 </Button>
-                <Button type="submit" variant="contained" sx={{ backgroundColor: "#5cb85c" }} disabled={isSubmitting}>
+                <Button 
+                  type="submit" 
+                  variant="contained"
+                  disabled={isSubmitting}
+                  sx={{
+                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    fontWeight: 700,
+                    borderRadius: '12px',
+                    padding: '12px 32px',
+                    boxShadow: '0 8px 20px rgba(102, 126, 234, 0.4)',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      background: 'linear-gradient(135deg, #5568d3 0%, #6a3f8f 100%)',
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 12px 28px rgba(102, 126, 234, 0.5)',
+                    },
+                    '&:disabled': {
+                      background: '#94a3b8',
+                    }
+                  }}
+                >
                   Registrar
                 </Button>
               </Box>

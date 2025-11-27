@@ -58,12 +58,23 @@ const ResumenVisita = () => {
 
   return (
     <Box maxWidth="md" mx="auto" p={4}>
-      <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
-        <Typography variant="h4" fontWeight="bold" color="primary.main" gutterBottom>
+      <Paper elevation={0} sx={{ 
+        p: 4, 
+        borderRadius: 3,
+        background: '#ffffff',
+        boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+        border: '1px solid #e2e8f0',
+      }}>
+        <Typography 
+          variant="h4" 
+          fontWeight={700}
+          gutterBottom
+          color="#0f172a"
+        >
           Resumen de la Visita
         </Typography>
 
-        <Typography variant="subtitle1" color="textSecondary" mb={3}>
+        <Typography variant="h6" color="#64748b" mb={4} fontWeight={500}>
           Verifica que todos los datos estén correctos antes de confirmar.
         </Typography>
 
@@ -86,16 +97,41 @@ const ResumenVisita = () => {
           <Button
             variant="outlined"
             onClick={handleEditar}
-            sx={{ minWidth: "160px" }}
+            sx={{ 
+              minWidth: "160px",
+              borderColor: '#14b8a6',
+              color: '#14b8a6',
+              fontWeight: 700,
+              borderRadius: '10px',
+              padding: '12px 24px',
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                borderColor: '#0d9488',
+                background: 'rgba(20, 184, 166, 0.1)',
+                transform: 'translateY(-2px)',
+              }
+            }}
           >
             Modificar
           </Button>
 
           <Button
             variant="contained"
-            color="primary"
             onClick={handleConfirmar}
-            sx={{ minWidth: "200px" }}
+            sx={{ 
+              minWidth: "200px",
+              background: 'linear-gradient(135deg, #14b8a6, #06b6d4)',
+              fontWeight: 700,
+              borderRadius: '10px',
+              padding: '12px 24px',
+              boxShadow: '0 4px 14px rgba(20, 184, 166, 0.4)',
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                background: 'linear-gradient(135deg, #0d9488, #0891b2)',
+                transform: 'translateY(-2px)',
+                boxShadow: '0 8px 24px rgba(20, 184, 166, 0.5)',
+              }
+            }}
           >
             Confirmar y generar QR
           </Button>

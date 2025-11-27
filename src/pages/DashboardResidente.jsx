@@ -30,24 +30,74 @@ const DashboardResidente = () => {
 
   return (
     <Box p={4}>
-      <Typography variant="h4" fontWeight="bold" color="#4D5637" mb={1}>
+      <Typography 
+        variant="h3" 
+        fontWeight={700}
+        mb={1}
+        color="#0f172a"
+      >
         ¡Hola, {user?.nombre} {user?.apellido}!
       </Typography>
-      <Typography variant="subtitle1" color="textSecondary" mb={4}>
+      <Typography 
+        variant="h6" 
+        color="#64748b" 
+        mb={4}
+        fontWeight={500}
+      >
         ¿Qué deseas hacer hoy?
       </Typography>
 
-      <Grid container spacing={3}>
+      <Grid container spacing={4}>
         {actions.map((item, index) => (
           <Grid item xs={12} md={4} key={index}>
-            <Card sx={{ borderRadius: 3, boxShadow: 4 }}>
-              <CardActionArea onClick={item.action}>
-                <CardContent sx={{ textAlign: "center", py: 4 }}>
-                  {item.icon}
-                  <Typography variant="h6" fontWeight="bold" mt={2}>
+            <Card sx={{ 
+              borderRadius: 3, 
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
+              background: '#ffffff',
+              border: '1px solid #e2e8f0',
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                transform: 'translateY(-4px)',
+                boxShadow: '0 10px 30px rgba(20, 184, 166, 0.15)',
+                border: '1px solid #14b8a6',
+              }
+            }}>
+              <CardActionArea 
+                onClick={item.action}
+                sx={{
+                  transition: 'all 0.3s ease',
+                }}
+              >
+                <CardContent sx={{ textAlign: "center", py: 4, px: 3 }}>
+                  <Box sx={{
+                    display: 'inline-flex',
+                    padding: '16px',
+                    borderRadius: '16px',
+                    background: 'linear-gradient(135deg, #14b8a6, #06b6d4)',
+                    marginBottom: 2,
+                    boxShadow: '0 4px 14px rgba(20, 184, 166, 0.4)',
+                    '& svg': {
+                      fontSize: '40px',
+                      color: 'white',
+                    }
+                  }}>
+                    {item.icon}
+                  </Box>
+                  <Typography 
+                    variant="h5" 
+                    fontWeight={700}
+                    mt={2}
+                    mb={1.5}
+                    color="#0f172a"
+                  >
                     {item.title}
                   </Typography>
-                  <Typography variant="body2" color="textSecondary">
+                  <Typography 
+                    variant="body1" 
+                    color="#64748b"
+                    fontWeight={400}
+                    lineHeight={1.6}
+                  >
                     {item.description}
                   </Typography>
                 </CardContent>
