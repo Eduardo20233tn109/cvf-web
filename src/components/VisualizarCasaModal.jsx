@@ -8,6 +8,7 @@ import {
   Typography,
   Box,
 } from "@mui/material";
+import { API_ENDPOINTS } from "../config/env.js";
 
 const VisualizarCasaModal = ({ open, onClose, casa }) => {
   if (!casa) return null;
@@ -20,7 +21,7 @@ const VisualizarCasaModal = ({ open, onClose, casa }) => {
   const colorEstado = casa.status === "activo" ? "green" : "red";
 
   const urlImagen = casa.photo
-    ? `http://localhost:4000/uploads/${casa.photo}`
+    ? API_ENDPOINTS.UPLOADS(casa.photo)
     : null;
 
   return (

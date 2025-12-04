@@ -8,6 +8,7 @@ import {
   Typography,
   Box,
 } from "@mui/material";
+import { API_ENDPOINTS } from "../config/env.js";
 
 const VisualizarUsuarioModal = ({ open, onClose, usuario }) => {
   if (!usuario) return null;
@@ -27,7 +28,7 @@ const VisualizarUsuarioModal = ({ open, onClose, usuario }) => {
     : "No disponible";
 
   const urlImagenCasa = house?.photo
-    ? `http://localhost:4000/uploads/${house.photo}`
+    ? API_ENDPOINTS.UPLOADS(house.photo)
     : null;
 
   return (

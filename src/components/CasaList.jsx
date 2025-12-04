@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import { API_ENDPOINTS } from "../config/env.js";
 
 const CasaList = () => {
   const [casas, setCasas] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/api/houses")
+    fetch(API_ENDPOINTS.HOUSES)
       .then((res) => res.json())
       .then((data) => {
         if (data.ok) setCasas(data.data);
@@ -17,7 +18,7 @@ const CasaList = () => {
     if (!confirm) return;
 
     try {
-      const res = await fetch(`http://localhost:4000/api/houses/${id}`, {
+      const res = await fetch(API_ENDPOINTS.DELETE_HOUSE(id), {
         method: "PUT",
       });
 
@@ -44,7 +45,7 @@ const CasaList = () => {
           </p>
           {casa.imagen && (
             <img
-              src={`http://localhost:4000/uploads/${casa.imagen}`}
+              src={API_ENDPOINTS.UPLOADS(casa.imagen)}
               alt="Foto de la casa"
               style={{ width: "300px", borderRadius: "8px" }}
             />

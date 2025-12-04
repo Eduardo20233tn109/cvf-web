@@ -7,8 +7,8 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import { motion } from "framer-motion";
-import { axiosFormData } from "../config/axiosConfig";
-import axios from "axios";
+import { axiosFormData, axiosInstance } from "../config/axiosConfig";
+import { API_ENDPOINTS } from "../config/env.js";
 
 const validationSchema = Yup.object({
   calle: Yup.string()
@@ -39,7 +39,7 @@ const CasaModal = ({ open, onClose, residence, onSave }) => {
   const checkStreetExists = async (street) => {
     try {
       const encodedStreet = encodeURIComponent(street.trim().toLowerCase());
-      const res = await axios.get(`http://localhost:4000/api/houses/check-street/${encodedStreet}`);
+      const res = await axiosInstance.get(API_ENDPOINTS.CHECK_STREET(encodedStreet));
       return res.data?.data?.exists === true;
     } catch (err) {
       console.error("Error al verificar la calle:", err);
@@ -96,7 +96,7 @@ const CasaModal = ({ open, onClose, residence, onSave }) => {
 
   useEffect(() => {
     if (residence?.photo) {
-      setPreviewImage(`http://localhost:4000/uploads/${residence.photo}`);
+      setPreviewImage(API_ENDPOINTS.UPLOADS(residence.photo));
     }
   }, [residence]);
 
