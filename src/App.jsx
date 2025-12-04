@@ -8,7 +8,7 @@ import { CssBaseline, Box } from "@mui/material";
 function Layout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const location = useLocation();
-  const isLogin = location.pathname === "/"; // Ocultar layout si es login
+  const isLogin = location.pathname === "/" || location.pathname === "/unauthorized"; // Ocultar layout si es login o unauthorized
 
   return (
     <Box sx={{ 
