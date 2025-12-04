@@ -1,9 +1,10 @@
 // ✅ Configuración de Axios con interceptores para JWT
 import axios from "axios";
+import { API_BASE_URL } from "./env.js";
 
 // Instancia para peticiones JSON
 export const axiosInstance = axios.create({
-  baseURL: "http://localhost:4000/",
+  baseURL: API_BASE_URL,
   headers: {
     "Content-Type": "application/json"
   }
@@ -11,7 +12,7 @@ export const axiosInstance = axios.create({
 
 // Instancia para peticiones con FormData (imágenes)
 export const axiosFormData = axios.create({
-  baseURL: "http://localhost:4000/api",
+  baseURL: `${API_BASE_URL}/api`,
   headers: {
     "Content-Type": "multipart/form-data"
   }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { axiosInstance as axios } from "../config/axiosConfig";
 import {
   Box,
   Button,
@@ -142,7 +142,7 @@ const Login = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:4000/api/users/login-mobile", {
+      const response = await axios.post("/api/users/login-mobile", {
         username,
         password
       });
