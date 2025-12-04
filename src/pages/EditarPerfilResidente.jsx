@@ -114,59 +114,107 @@ const PerfilResidente = () => {
   };
 
   return (
-    <Box p={4}>
-      <Typography 
-        variant="h4" 
-        fontWeight={700}
-        mb={1}
-        color="#0f172a"
-      >
-        Mi Perfil
-      </Typography>
-      <Typography variant="h6" color="#64748b" mb={4} fontWeight={500}>
-        Visualiza y actualiza tu información personal.
-      </Typography>
+    <Box 
+      sx={{ 
+        py: { xs: 3, md: 4 },
+        px: { xs: 2, md: 4 }
+      }}
+    >
+      <Box mb={4}>
+        <Typography 
+          variant="h4" 
+          fontWeight={800}
+          mb={1.5}
+          color="#0f172a"
+          sx={{ fontSize: { xs: '1.75rem', md: '2.25rem' } }}
+        >
+          Mi Perfil
+        </Typography>
+        <Typography 
+          variant="h6" 
+          color="#64748b" 
+          fontWeight={500}
+          sx={{ fontSize: { xs: '1rem', md: '1.125rem' } }}
+        >
+          Visualiza y actualiza tu información personal
+        </Typography>
+      </Box>
 
-      <Paper elevation={0} sx={{ 
-        p: 4, 
-        borderRadius: 3,
-        background: '#ffffff',
-        boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-        border: '1px solid #e2e8f0',
-      }}>
+      <Paper 
+        elevation={0} 
+        sx={{ 
+          p: { xs: 3, md: 5 }, 
+          borderRadius: 4,
+          background: '#ffffff',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+          border: '1px solid #f1f5f9',
+        }}
+      >
         <form onSubmit={handleSubmit}>
           <Grid container spacing={4}>
             {/* Columna izquierda: Avatar + dirección */}
             <Grid item xs={12} md={4}>
-              <Box textAlign="center">
+              <Box 
+                textAlign="center"
+                sx={{
+                  position: 'relative',
+                  p: 3,
+                  borderRadius: 3,
+                  background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)',
+                  border: '2px dashed #cbd5e1',
+                }}
+              >
                 <Avatar
                   src="/images/residente.png"
                   alt="Residente"
-                  sx={{ width: 120, height: 120, mb: 2, mx: "auto" }}
+                  sx={{ 
+                    width: { xs: 100, md: 140 }, 
+                    height: { xs: 100, md: 140 }, 
+                    mb: 3, 
+                    mx: "auto",
+                    border: '4px solid white',
+                    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)',
+                  }}
                 />
-                <Typography variant="body2" fontWeight="bold" mb={1}>
-                  Dirección
+                <Typography 
+                  variant="subtitle2" 
+                  fontWeight={700}
+                  mb={1.5}
+                  color="#0f172a"
+                  sx={{ fontSize: '0.875rem' }}
+                >
+                  Dirección de Residencia
                 </Typography>
                 <TextField
                   value={formData.direccion}
                   disabled
                   fullWidth
                   size="small"
+                  sx={{
+                    '& .MuiOutlinedInput-root': {
+                      borderRadius: '10px',
+                      backgroundColor: '#ffffff',
+                      '& fieldset': {
+                        borderColor: '#e2e8f0',
+                      }
+                    }
+                  }}
                 />
                 <Typography
                   variant="caption"
-                  mt={1}
+                  mt={2}
                   display="block"
-                  color="textSecondary"
+                  color="#64748b"
+                  sx={{ fontSize: '0.75rem' }}
                 >
-                  La imagen de perfil no es editable.
+                  La dirección no es editable
                 </Typography>
               </Box>
             </Grid>
 
             {/* Columna derecha: formulario */}
             <Grid item xs={12} md={8}>
-              <Grid container spacing={2}>
+              <Grid container spacing={3}>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     fullWidth
@@ -178,16 +226,22 @@ const PerfilResidente = () => {
                     sx={{
                       '& .MuiOutlinedInput-root': {
                         borderRadius: '12px',
-                        transition: 'all 0.3s ease',
+                        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                        backgroundColor: '#fafafa',
                         '&:hover': {
-                          boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                          backgroundColor: '#ffffff',
+                          boxShadow: '0 4px 12px rgba(20, 184, 166, 0.1)',
+                          '& fieldset': {
+                            borderColor: '#14b8a6',
+                          }
                         },
                         '&.Mui-focused': {
-                          boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                          backgroundColor: '#ffffff',
+                          boxShadow: '0 4px 20px rgba(20, 184, 166, 0.15)',
                         }
                       },
                       '& .MuiInputLabel-root.Mui-focused': {
-                        color: '#667eea',
+                        color: '#14b8a6',
                         fontWeight: 600,
                       }
                     }}
@@ -204,16 +258,22 @@ const PerfilResidente = () => {
                     sx={{
                       '& .MuiOutlinedInput-root': {
                         borderRadius: '12px',
-                        transition: 'all 0.3s ease',
+                        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                        backgroundColor: '#fafafa',
                         '&:hover': {
-                          boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                          backgroundColor: '#ffffff',
+                          boxShadow: '0 4px 12px rgba(20, 184, 166, 0.1)',
+                          '& fieldset': {
+                            borderColor: '#14b8a6',
+                          }
                         },
                         '&.Mui-focused': {
-                          boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                          backgroundColor: '#ffffff',
+                          boxShadow: '0 4px 20px rgba(20, 184, 166, 0.15)',
                         }
                       },
                       '& .MuiInputLabel-root.Mui-focused': {
-                        color: '#667eea',
+                        color: '#14b8a6',
                         fontWeight: 600,
                       }
                     }}
@@ -230,16 +290,22 @@ const PerfilResidente = () => {
                     sx={{
                       '& .MuiOutlinedInput-root': {
                         borderRadius: '12px',
-                        transition: 'all 0.3s ease',
+                        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                        backgroundColor: '#fafafa',
                         '&:hover': {
-                          boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                          backgroundColor: '#ffffff',
+                          boxShadow: '0 4px 12px rgba(20, 184, 166, 0.1)',
+                          '& fieldset': {
+                            borderColor: '#14b8a6',
+                          }
                         },
                         '&.Mui-focused': {
-                          boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                          backgroundColor: '#ffffff',
+                          boxShadow: '0 4px 20px rgba(20, 184, 166, 0.15)',
                         }
                       },
                       '& .MuiInputLabel-root.Mui-focused': {
-                        color: '#667eea',
+                        color: '#14b8a6',
                         fontWeight: 600,
                       }
                     }}
@@ -256,16 +322,22 @@ const PerfilResidente = () => {
                     sx={{
                       '& .MuiOutlinedInput-root': {
                         borderRadius: '12px',
-                        transition: 'all 0.3s ease',
+                        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                        backgroundColor: '#fafafa',
                         '&:hover': {
-                          boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                          backgroundColor: '#ffffff',
+                          boxShadow: '0 4px 12px rgba(20, 184, 166, 0.1)',
+                          '& fieldset': {
+                            borderColor: '#14b8a6',
+                          }
                         },
                         '&.Mui-focused': {
-                          boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                          backgroundColor: '#ffffff',
+                          boxShadow: '0 4px 20px rgba(20, 184, 166, 0.15)',
                         }
                       },
                       '& .MuiInputLabel-root.Mui-focused': {
-                        color: '#667eea',
+                        color: '#14b8a6',
                         fontWeight: 600,
                       }
                     }}
@@ -283,16 +355,22 @@ const PerfilResidente = () => {
                     sx={{
                       '& .MuiOutlinedInput-root': {
                         borderRadius: '12px',
-                        transition: 'all 0.3s ease',
+                        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                        backgroundColor: '#fafafa',
                         '&:hover': {
-                          boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                          backgroundColor: '#ffffff',
+                          boxShadow: '0 4px 12px rgba(20, 184, 166, 0.1)',
+                          '& fieldset': {
+                            borderColor: '#14b8a6',
+                          }
                         },
                         '&.Mui-focused': {
-                          boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                          backgroundColor: '#ffffff',
+                          boxShadow: '0 4px 20px rgba(20, 184, 166, 0.15)',
                         }
                       },
                       '& .MuiInputLabel-root.Mui-focused': {
-                        color: '#667eea',
+                        color: '#14b8a6',
                         fontWeight: 600,
                       }
                     }}
@@ -304,19 +382,24 @@ const PerfilResidente = () => {
                     variant="contained"
                     fullWidth
                     sx={{
-                      background: 'linear-gradient(135deg, #14b8a6, #06b6d4)',
+                      background: 'linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%)',
                       color: "#fff",
                       fontWeight: 700,
-                      fontSize: '15px',
-                      padding: '14px',
+                      fontSize: '16px',
+                      padding: '16px',
                       borderRadius: '12px',
                       letterSpacing: '0.5px',
                       boxShadow: '0 4px 14px rgba(20, 184, 166, 0.4)',
-                      transition: 'all 0.3s ease',
+                      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                      textTransform: 'none',
+                      mt: 1,
                       "&:hover": {
-                        background: 'linear-gradient(135deg, #0d9488, #0891b2)',
+                        background: 'linear-gradient(135deg, #0d9488 0%, #0891b2 100%)',
                         transform: 'translateY(-2px)',
                         boxShadow: '0 8px 24px rgba(20, 184, 166, 0.5)',
+                      },
+                      "&:active": {
+                        transform: 'translateY(0)',
                       }
                     }}
                   >

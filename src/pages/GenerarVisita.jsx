@@ -65,22 +65,42 @@ const GenerarVisita = () => {
   };
 
   return (
-    <Box maxWidth="md" mx="auto" p={4}>
-      <Paper elevation={0} sx={{ 
-        p: 4, 
-        borderRadius: 3,
-        background: '#ffffff',
-        boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-        border: '1px solid #e2e8f0',
-      }}>
-        <Typography 
-          variant="h4" 
-          fontWeight={700}
-          mb={3}
-          color="#0f172a"
-        >
-          Crear Nueva Visita
-        </Typography>
+    <Box 
+      maxWidth="md" 
+      mx="auto" 
+      sx={{ 
+        py: { xs: 3, md: 4 },
+        px: { xs: 2, md: 4 }
+      }}
+    >
+      <Paper 
+        elevation={0} 
+        sx={{ 
+          p: { xs: 3, md: 5 }, 
+          borderRadius: 4,
+          background: '#ffffff',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+          border: '1px solid #f1f5f9',
+        }}
+      >
+        <Box mb={4}>
+          <Typography 
+            variant="h4" 
+            fontWeight={800}
+            mb={1.5}
+            color="#0f172a"
+            sx={{ fontSize: { xs: '1.75rem', md: '2.25rem' } }}
+          >
+            Crear Nueva Visita
+          </Typography>
+          <Typography 
+            variant="body1" 
+            color="#64748b" 
+            fontWeight={500}
+          >
+            Completa el formulario para registrar una nueva visita
+          </Typography>
+        </Box>
 
         <form onSubmit={handleSubmit}>
           <Grid container spacing={3}>
@@ -97,16 +117,22 @@ const GenerarVisita = () => {
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     borderRadius: '12px',
-                    transition: 'all 0.3s ease',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    backgroundColor: '#fafafa',
                     '&:hover': {
-                      boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                      backgroundColor: '#ffffff',
+                      boxShadow: '0 4px 12px rgba(20, 184, 166, 0.1)',
+                      '& fieldset': {
+                        borderColor: '#14b8a6',
+                      }
                     },
                     '&.Mui-focused': {
-                      boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                      backgroundColor: '#ffffff',
+                      boxShadow: '0 4px 20px rgba(20, 184, 166, 0.15)',
                     }
                   },
                   '& .MuiInputLabel-root.Mui-focused': {
-                    color: '#667eea',
+                    color: '#14b8a6',
                     fontWeight: 600,
                   }
                 }}
@@ -125,16 +151,22 @@ const GenerarVisita = () => {
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     borderRadius: '12px',
-                    transition: 'all 0.3s ease',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    backgroundColor: '#fafafa',
                     '&:hover': {
-                      boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                      backgroundColor: '#ffffff',
+                      boxShadow: '0 4px 12px rgba(20, 184, 166, 0.1)',
+                      '& fieldset': {
+                        borderColor: '#14b8a6',
+                      }
                     },
                     '&.Mui-focused': {
-                      boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                      backgroundColor: '#ffffff',
+                      boxShadow: '0 4px 20px rgba(20, 184, 166, 0.15)',
                     }
                   },
                   '& .MuiInputLabel-root.Mui-focused': {
-                    color: '#667eea',
+                    color: '#14b8a6',
                     fontWeight: 600,
                   }
                 }}
@@ -150,19 +182,26 @@ const GenerarVisita = () => {
                 value={formData.numeroPersonas}
                 onChange={handleChange}
                 required
+                inputProps={{ min: 1 }}
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     borderRadius: '12px',
-                    transition: 'all 0.3s ease',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    backgroundColor: '#fafafa',
                     '&:hover': {
-                      boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                      backgroundColor: '#ffffff',
+                      boxShadow: '0 4px 12px rgba(20, 184, 166, 0.1)',
+                      '& fieldset': {
+                        borderColor: '#14b8a6',
+                      }
                     },
                     '&.Mui-focused': {
-                      boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                      backgroundColor: '#ffffff',
+                      boxShadow: '0 4px 20px rgba(20, 184, 166, 0.15)',
                     }
                   },
                   '& .MuiInputLabel-root.Mui-focused': {
-                    color: '#667eea',
+                    color: '#14b8a6',
                     fontWeight: 600,
                   }
                 }}
@@ -179,16 +218,22 @@ const GenerarVisita = () => {
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     borderRadius: '12px',
-                    transition: 'all 0.3s ease',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    backgroundColor: '#fafafa',
                     '&:hover': {
-                      boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                      backgroundColor: '#ffffff',
+                      boxShadow: '0 4px 12px rgba(20, 184, 166, 0.1)',
+                      '& fieldset': {
+                        borderColor: '#14b8a6',
+                      }
                     },
                     '&.Mui-focused': {
-                      boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                      backgroundColor: '#ffffff',
+                      boxShadow: '0 4px 20px rgba(20, 184, 166, 0.15)',
                     }
                   },
                   '& .MuiInputLabel-root.Mui-focused': {
-                    color: '#667eea',
+                    color: '#14b8a6',
                     fontWeight: 600,
                   }
                 }}
@@ -205,19 +250,26 @@ const GenerarVisita = () => {
                 value={formData.descripcion}
                 onChange={handleChange}
                 required
+                placeholder="Describe el motivo de la visita..."
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     borderRadius: '12px',
-                    transition: 'all 0.3s ease',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    backgroundColor: '#fafafa',
                     '&:hover': {
-                      boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                      backgroundColor: '#ffffff',
+                      boxShadow: '0 4px 12px rgba(20, 184, 166, 0.1)',
+                      '& fieldset': {
+                        borderColor: '#14b8a6',
+                      }
                     },
                     '&.Mui-focused': {
-                      boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                      backgroundColor: '#ffffff',
+                      boxShadow: '0 4px 20px rgba(20, 184, 166, 0.15)',
                     }
                   },
                   '& .MuiInputLabel-root.Mui-focused': {
-                    color: '#667eea',
+                    color: '#14b8a6',
                     fontWeight: 600,
                   }
                 }}
@@ -225,7 +277,12 @@ const GenerarVisita = () => {
             </Grid>
 
             <Grid item xs={12}>
-              <Typography variant="subtitle1" fontWeight="bold" mb={1}>
+              <Typography 
+                variant="subtitle1" 
+                fontWeight={700} 
+                mb={2}
+                color="#0f172a"
+              >
                 Tipo de visita:
               </Typography>
               <ToggleButtonGroup
@@ -233,6 +290,19 @@ const GenerarVisita = () => {
                 exclusive
                 onChange={handleTipoVisita}
                 fullWidth
+                sx={{
+                  gap: 1,
+                  '& .MuiToggleButtonGroup-grouped': {
+                    border: '2px solid #e2e8f0',
+                    '&:not(:first-of-type)': {
+                      borderRadius: '12px',
+                      borderLeft: '2px solid #e2e8f0',
+                    },
+                    '&:first-of-type': {
+                      borderRadius: '12px',
+                    }
+                  }
+                }}
               >
                 {["Familiar", "Técnica"].map((tipo) => (
                   <ToggleButton
@@ -240,18 +310,22 @@ const GenerarVisita = () => {
                     value={tipo}
                     sx={{
                       textTransform: "none",
-                      fontWeight: 600,
-                      borderRadius: '10px',
+                      fontWeight: 700,
+                      fontSize: '15px',
+                      py: 1.5,
+                      borderRadius: '12px !important',
                       background: formData.tipoVisita === tipo 
-                        ? 'linear-gradient(135deg, #14b8a6, #06b6d4)' 
-                        : "transparent",
-                      color: formData.tipoVisita === tipo ? "#fff" : primaryColor,
-                      borderColor: primaryColor,
-                      transition: 'all 0.3s ease',
+                        ? 'linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%)' 
+                        : "#ffffff",
+                      color: formData.tipoVisita === tipo ? "#fff" : "#64748b",
+                      borderColor: formData.tipoVisita === tipo ? 'transparent' : '#e2e8f0',
+                      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                       "&:hover": {
                         background: formData.tipoVisita === tipo 
-                          ? 'linear-gradient(135deg, #0d9488, #0891b2)'
-                          : "rgba(20, 184, 166, 0.1)"
+                          ? 'linear-gradient(135deg, #0d9488 0%, #0891b2 100%)'
+                          : "rgba(20, 184, 166, 0.08)",
+                        borderColor: formData.tipoVisita === tipo ? 'transparent' : '#14b8a6',
+                        color: formData.tipoVisita === tipo ? "#fff" : "#14b8a6",
                       }
                     }}
                   >
@@ -272,16 +346,22 @@ const GenerarVisita = () => {
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     borderRadius: '12px',
-                    transition: 'all 0.3s ease',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    backgroundColor: '#fafafa',
                     '&:hover': {
-                      boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                      backgroundColor: '#ffffff',
+                      boxShadow: '0 4px 12px rgba(20, 184, 166, 0.1)',
+                      '& fieldset': {
+                        borderColor: '#14b8a6',
+                      }
                     },
                     '&.Mui-focused': {
-                      boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                      backgroundColor: '#ffffff',
+                      boxShadow: '0 4px 20px rgba(20, 184, 166, 0.15)',
                     }
                   },
                   '& .MuiInputLabel-root.Mui-focused': {
-                    color: '#667eea',
+                    color: '#14b8a6',
                     fontWeight: 600,
                   }
                 }}
@@ -297,7 +377,10 @@ const GenerarVisita = () => {
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     borderRadius: '12px',
-                    backgroundColor: '#f8fafc',
+                    backgroundColor: '#f1f5f9',
+                    '& fieldset': {
+                      borderColor: '#e2e8f0',
+                    }
                   }
                 }}
               />
@@ -312,19 +395,26 @@ const GenerarVisita = () => {
                 value={formData.contrasena}
                 onChange={handleChange}
                 required
+                helperText="Mínimo 4 caracteres"
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     borderRadius: '12px',
-                    transition: 'all 0.3s ease',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    backgroundColor: '#fafafa',
                     '&:hover': {
-                      boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                      backgroundColor: '#ffffff',
+                      boxShadow: '0 4px 12px rgba(20, 184, 166, 0.1)',
+                      '& fieldset': {
+                        borderColor: '#14b8a6',
+                      }
                     },
                     '&.Mui-focused': {
-                      boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                      backgroundColor: '#ffffff',
+                      boxShadow: '0 4px 20px rgba(20, 184, 166, 0.15)',
                     }
                   },
                   '& .MuiInputLabel-root.Mui-focused': {
-                    color: '#667eea',
+                    color: '#14b8a6',
                     fontWeight: 600,
                   }
                 }}
@@ -343,16 +433,22 @@ const GenerarVisita = () => {
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     borderRadius: '12px',
-                    transition: 'all 0.3s ease',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    backgroundColor: '#fafafa',
                     '&:hover': {
-                      boxShadow: '0 4px 12px rgba(102, 126, 234, 0.15)',
+                      backgroundColor: '#ffffff',
+                      boxShadow: '0 4px 12px rgba(20, 184, 166, 0.1)',
+                      '& fieldset': {
+                        borderColor: '#14b8a6',
+                      }
                     },
                     '&.Mui-focused': {
-                      boxShadow: '0 4px 20px rgba(102, 126, 234, 0.25)',
+                      backgroundColor: '#ffffff',
+                      boxShadow: '0 4px 20px rgba(20, 184, 166, 0.15)',
                     }
                   },
                   '& .MuiInputLabel-root.Mui-focused': {
-                    color: '#667eea',
+                    color: '#14b8a6',
                     fontWeight: 600,
                   }
                 }}
@@ -361,13 +457,33 @@ const GenerarVisita = () => {
 
             {error && (
               <Grid item xs={12}>
-                <Alert severity="error">{error}</Alert>
+                <Alert 
+                  severity="error"
+                  sx={{
+                    borderRadius: '12px',
+                    '& .MuiAlert-icon': {
+                      fontSize: '1.5rem'
+                    }
+                  }}
+                >
+                  {error}
+                </Alert>
               </Grid>
             )}
 
             {success && (
               <Grid item xs={12}>
-                <Alert severity="success">Formulario válido, redirigiendo...</Alert>
+                <Alert 
+                  severity="success"
+                  sx={{
+                    borderRadius: '12px',
+                    '& .MuiAlert-icon': {
+                      fontSize: '1.5rem'
+                    }
+                  }}
+                >
+                  Formulario válido, redirigiendo...
+                </Alert>
               </Grid>
             )}
 
@@ -377,23 +493,28 @@ const GenerarVisita = () => {
                 variant="contained"
                 fullWidth
                 sx={{
-                  background: 'linear-gradient(135deg, #14b8a6, #06b6d4)',
+                  background: 'linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%)',
                   color: "#fff",
                   fontWeight: 700,
-                  fontSize: '15px',
-                  padding: '14px',
+                  fontSize: '16px',
+                  padding: '16px',
                   borderRadius: '12px',
                   letterSpacing: '0.5px',
                   boxShadow: '0 4px 14px rgba(20, 184, 166, 0.4)',
-                  transition: 'all 0.3s ease',
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  textTransform: 'none',
+                  mt: 1,
                   "&:hover": {
-                    background: 'linear-gradient(135deg, #0d9488, #0891b2)',
+                    background: 'linear-gradient(135deg, #0d9488 0%, #0891b2 100%)',
                     transform: 'translateY(-2px)',
                     boxShadow: '0 8px 24px rgba(20, 184, 166, 0.5)',
+                  },
+                  "&:active": {
+                    transform: 'translateY(0)',
                   }
                 }}
               >
-                CONTINUAR
+                Continuar
               </Button>
             </Grid>
           </Grid>

@@ -107,7 +107,7 @@ const ConfirmDeleteModal = ({
               boxShadow: esActivar
                 ? '0 8px 20px rgba(16, 185, 129, 0.4)'
                 : '0 8px 20px rgba(239, 68, 68, 0.4)',
-              transition: 'all 0.3s ease',
+              transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
               '&:hover': {
                 background: esActivar 
                   ? 'linear-gradient(135deg, #059669, #047857)' 
@@ -116,6 +116,19 @@ const ConfirmDeleteModal = ({
                 boxShadow: esActivar
                   ? '0 12px 28px rgba(16, 185, 129, 0.5)'
                   : '0 12px 28px rgba(239, 68, 68, 0.5)',
+                outline: esActivar
+                  ? '2px solid rgba(16, 185, 129, 0.3)'
+                  : '2px solid rgba(239, 68, 68, 0.3)',
+                outlineOffset: '2px',
+              },
+              '&:focus': {
+                outline: esActivar
+                  ? '3px solid rgba(16, 185, 129, 0.5)'
+                  : '3px solid rgba(239, 68, 68, 0.5)',
+                outlineOffset: '2px',
+              },
+              '&:active': {
+                transform: 'translateY(0)',
               }
             }}
           >
@@ -125,17 +138,31 @@ const ConfirmDeleteModal = ({
             variant="outlined"
             onClick={onClose}
             sx={{
-              borderColor: '#64748b',
+              background: '#ffffff',
               color: '#64748b',
               fontWeight: 700,
               borderRadius: "12px",
               padding: "12px 28px",
               letterSpacing: '0.5px',
-              transition: 'all 0.3s ease',
+              textTransform: 'uppercase',
+              border: '2px solid #cbd5e1',
+              transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
               '&:hover': {
-                borderColor: '#475569',
-                background: 'rgba(100, 116, 139, 0.1)',
+                background: '#f8fafc',
+                borderColor: '#94a3b8',
+                color: '#475569',
                 transform: 'translateY(-2px)',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+              },
+              '&:focus': {
+                outline: '3px solid rgba(148, 163, 184, 0.3)',
+                outlineOffset: '2px',
+                borderColor: '#94a3b8',
+              },
+              '&:active': {
+                transform: 'translateY(0)',
+                boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
               }
             }}
           >

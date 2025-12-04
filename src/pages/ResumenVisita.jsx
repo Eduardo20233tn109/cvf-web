@@ -57,58 +57,114 @@ const ResumenVisita = () => {
   };
 
   return (
-    <Box maxWidth="md" mx="auto" p={4}>
-      <Paper elevation={0} sx={{ 
-        p: 4, 
-        borderRadius: 3,
-        background: '#ffffff',
-        boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-        border: '1px solid #e2e8f0',
-      }}>
-        <Typography 
-          variant="h4" 
-          fontWeight={700}
-          gutterBottom
-          color="#0f172a"
-        >
-          Resumen de la Visita
-        </Typography>
+    <Box 
+      maxWidth="md" 
+      mx="auto" 
+      sx={{ 
+        py: { xs: 3, md: 4 },
+        px: { xs: 2, md: 4 }
+      }}
+    >
+      <Paper 
+        elevation={0} 
+        sx={{ 
+          p: { xs: 3, md: 5 }, 
+          borderRadius: 4,
+          background: '#ffffff',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+          border: '1px solid #f1f5f9',
+        }}
+      >
+        <Box mb={4}>
+          <Typography 
+            variant="h4" 
+            fontWeight={800}
+            gutterBottom
+            color="#0f172a"
+            sx={{ fontSize: { xs: '1.75rem', md: '2.25rem' } }}
+          >
+            Resumen de la Visita
+          </Typography>
+          <Typography 
+            variant="body1" 
+            color="#64748b" 
+            fontWeight={500}
+            sx={{ fontSize: { xs: '0.95rem', md: '1.125rem' } }}
+          >
+            Verifica que todos los datos estén correctos antes de confirmar
+          </Typography>
+        </Box>
 
-        <Typography variant="h6" color="#64748b" mb={4} fontWeight={500}>
-          Verifica que todos los datos estén correctos antes de confirmar.
-        </Typography>
+        <Divider sx={{ mb: 4, borderColor: '#e2e8f0' }} />
 
-        <Divider sx={{ mb: 3 }} />
-
-        <Grid container spacing={2}>
+        <Grid container spacing={3}>
           {Object.entries(datos).map(([label, value]) => (
             <Grid item xs={12} sm={6} key={label}>
-              <Typography variant="subtitle2" fontWeight="bold">
-                {label}
-              </Typography>
-              <Typography variant="body1" color="textSecondary">
-                {value}
-              </Typography>
+              <Box
+                sx={{
+                  p: 2.5,
+                  borderRadius: 2,
+                  background: 'linear-gradient(135deg, #f8fafc 0%, #ffffff 100%)',
+                  border: '1px solid #e2e8f0',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    borderColor: '#14b8a6',
+                    boxShadow: '0 4px 12px rgba(20, 184, 166, 0.1)',
+                    transform: 'translateY(-2px)',
+                  }
+                }}
+              >
+                <Typography 
+                  variant="subtitle2" 
+                  fontWeight={700}
+                  color="#0f172a"
+                  mb={1}
+                  sx={{ fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}
+                >
+                  {label}
+                </Typography>
+                <Typography 
+                  variant="body1" 
+                  color="#64748b"
+                  fontWeight={500}
+                  sx={{ fontSize: '1rem' }}
+                >
+                  {value || 'N/A'}
+                </Typography>
+              </Box>
             </Grid>
           ))}
         </Grid>
 
-        <Box mt={4} display="flex" justifyContent="space-between" flexWrap="wrap" gap={2}>
+        <Box 
+          mt={5} 
+          display="flex" 
+          justifyContent="space-between" 
+          flexWrap="wrap" 
+          gap={2}
+          sx={{
+            pt: 3,
+            borderTop: '1px solid #e2e8f0'
+          }}
+        >
           <Button
             variant="outlined"
             onClick={handleEditar}
             sx={{ 
-              minWidth: "160px",
+              minWidth: { xs: "100%", sm: "160px" },
               borderColor: '#14b8a6',
               color: '#14b8a6',
               fontWeight: 700,
-              borderRadius: '10px',
-              padding: '12px 24px',
-              transition: 'all 0.3s ease',
+              borderRadius: '12px',
+              padding: '14px 28px',
+              fontSize: '15px',
+              transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+              textTransform: 'none',
               '&:hover': {
                 borderColor: '#0d9488',
-                background: 'rgba(20, 184, 166, 0.1)',
+                background: 'rgba(20, 184, 166, 0.08)',
                 transform: 'translateY(-2px)',
+                boxShadow: '0 4px 12px rgba(20, 184, 166, 0.2)',
               }
             }}
           >
@@ -119,17 +175,22 @@ const ResumenVisita = () => {
             variant="contained"
             onClick={handleConfirmar}
             sx={{ 
-              minWidth: "200px",
-              background: 'linear-gradient(135deg, #14b8a6, #06b6d4)',
+              minWidth: { xs: "100%", sm: "200px" },
+              background: 'linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%)',
               fontWeight: 700,
-              borderRadius: '10px',
-              padding: '12px 24px',
+              borderRadius: '12px',
+              padding: '14px 28px',
+              fontSize: '15px',
               boxShadow: '0 4px 14px rgba(20, 184, 166, 0.4)',
-              transition: 'all 0.3s ease',
+              transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+              textTransform: 'none',
               '&:hover': {
-                background: 'linear-gradient(135deg, #0d9488, #0891b2)',
+                background: 'linear-gradient(135deg, #0d9488 0%, #0891b2 100%)',
                 transform: 'translateY(-2px)',
                 boxShadow: '0 8px 24px rgba(20, 184, 166, 0.5)',
+              },
+              '&:active': {
+                transform: 'translateY(0)',
               }
             }}
           >

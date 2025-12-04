@@ -220,16 +220,30 @@ const EditUserModal = ({ open, onClose, user, onSave }) => {
                   onClick={onClose} 
                   variant="outlined"
                   sx={{ 
-                    borderColor: '#ef4444',
-                    color: '#ef4444',
+                    background: '#ffffff',
+                    color: '#64748b',
                     fontWeight: 700,
                     borderRadius: '12px',
                     padding: '12px 32px',
-                    transition: 'all 0.3s ease',
+                    textTransform: 'uppercase',
+                    border: '2px solid #cbd5e1',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
                     '&:hover': {
-                      borderColor: '#dc2626',
-                      background: 'rgba(239, 68, 68, 0.1)',
+                      background: '#f8fafc',
+                      borderColor: '#94a3b8',
+                      color: '#475569',
                       transform: 'translateY(-2px)',
+                      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                    },
+                    '&:focus': {
+                      outline: '3px solid rgba(148, 163, 184, 0.3)',
+                      outlineOffset: '2px',
+                      borderColor: '#94a3b8',
+                    },
+                    '&:active': {
+                      transform: 'translateY(0)',
+                      boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
                     }
                   }}
                 >

@@ -86,7 +86,35 @@ const VisualizarUsuarioModal = ({ open, onClose, usuario }) => {
 
 
       <DialogActions>
-        <Button onClick={onClose} variant="contained" size="small">
+        <Button 
+          onClick={onClose} 
+          variant="contained" 
+          size="small"
+          sx={{
+            background: 'linear-gradient(135deg, #14b8a6 0%, #10b981 100%)',
+            borderRadius: '12px',
+            padding: '10px 24px',
+            fontWeight: 600,
+            textTransform: 'none',
+            fontSize: '15px',
+            boxShadow: '0 2px 8px rgba(20, 184, 166, 0.25)',
+            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+            '&:hover': {
+              background: 'linear-gradient(135deg, #0d9488 0%, #059669 100%)',
+              transform: 'translateY(-2px)',
+              boxShadow: '0 8px 20px rgba(20, 184, 166, 0.4)',
+              outline: '2px solid rgba(20, 184, 166, 0.3)',
+              outlineOffset: '2px',
+            },
+            '&:focus': {
+              outline: '3px solid rgba(20, 184, 166, 0.5)',
+              outlineOffset: '2px',
+            },
+            '&:active': {
+              transform: 'translateY(0)',
+            }
+          }}
+        >
           Cerrar
         </Button>
       </DialogActions>
