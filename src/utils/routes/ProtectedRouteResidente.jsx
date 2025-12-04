@@ -4,7 +4,7 @@ const ProtectedRouteResidente = () => {
   const user = JSON.parse(localStorage.getItem("user"));
 
   if (!user || user.tipoUsuario !== "RESIDENTE") {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/unauthorized" replace />;
   }
 
   return <Outlet />;

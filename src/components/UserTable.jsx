@@ -24,7 +24,7 @@ const UserTable = ({ statusFilter, category, onDelete }) => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axiosInstance.get("http://localhost:4000/api/users", {
+      const res = await axiosInstance.get("/api/users", {
         params: {
           estado: statusFilter !== "Todos" ? statusFilter : null
         }

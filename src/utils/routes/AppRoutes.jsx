@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 // Páginas comunes
 import Login from "../../pages/Login";
+import Unauthorized from "../../pages/Unauthorized";
 import GestionCasas from "../../pages/GestionCasas";
 import GestionUsuarios from "../../pages/GestionUsuarios";
 
@@ -22,6 +23,9 @@ const AppRoutes = () => {
     <Routes>
       {/* Página de login como inicio */}
       <Route path="/" element={<Login />} />
+      
+      {/* Página de acceso no autorizado */}
+      <Route path="/unauthorized" element={<Unauthorized />} />
 
       {/* Rutas protegidas solo para ADMIN */}
       <Route element={<ProtectedRouteAdmin />}>

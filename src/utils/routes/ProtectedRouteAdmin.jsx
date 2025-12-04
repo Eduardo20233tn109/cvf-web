@@ -5,7 +5,7 @@ const ProtectedRouteAdmin = () => {
   const user = JSON.parse(localStorage.getItem("user"));
 
   if (!token || user?.tipoUsuario !== "ADMIN") {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/unauthorized" replace />;
   }
 
   return <Outlet />;
