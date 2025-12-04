@@ -6,7 +6,7 @@ import {
 } from "@mui/material";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
+import { axiosInstance as axios } from "../config/axiosConfig";
 
 // 🔍 Verifica si el username ya existe
 const checkUsernameExists = async (username) => {

@@ -5,7 +5,7 @@ import {
 } from "@mui/material";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
+import { axiosInstance as axios } from "../config/axiosConfig";
 
 const validationSchema = Yup.object({
   nombre: Yup.string().min(2, "Debe tener al menos 2 caracteres").max(50, "Máximo 50 caracteres").required("El nombre es obligatorio"),
