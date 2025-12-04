@@ -28,7 +28,7 @@ const ResumenVisita = () => {
         residenteId: JSON.parse(localStorage.getItem("user"))?._id,
       };
 
-      const res = await axios.post("http://localhost:4000/api/visits/save", payload);
+      const res = await axios.post("/api/visits/save", payload);
       navigate("/residente/generar-qr", { state: res.data });
     } catch (error) {
       console.error("Error al guardar visita:", error);

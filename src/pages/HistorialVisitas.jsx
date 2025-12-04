@@ -26,7 +26,7 @@ const HistorialVisitas = () => {
   const fetchVisitas = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:4000/api/visits?estado=${selectedFilter}&_=${Date.now()}`
+        `/api/visits?estado=${selectedFilter}&_=${Date.now()}`
       );
 
       const propias = res.data.filter((v) => {

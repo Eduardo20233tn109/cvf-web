@@ -5,7 +5,7 @@ import UserModal from "../components/UserModal"; // Asegúrate que exportes corr
 import EditUserModal from "../components/EditUserModal";
 import ConfirmDeleteModal from "../components/ConfirmDeleteModal";
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
-import axios from "axios";
+import { axiosInstance } from "../config/axiosConfig";
 
 const GestionUsuarios = () => {
   const [statusFilter, setStatusFilter] = useState("Todos");
@@ -18,7 +18,7 @@ const GestionUsuarios = () => {
   const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
-    axios.get("http://localhost:4000/api/houses")
+    axiosInstance.get("/api/houses")
       .then((res) => setCasas(Array.isArray(res.data) ? res.data : res.data.data || []))
       .catch(() => setCasas([]));
 
@@ -45,7 +45,7 @@ const GestionUsuarios = () => {
   const handleConfirmDelete = async () => {
     if (!selectedUser) return;
     try {
-      await axios.put(`http://localhost:4000/api/users/status/${selectedUser._id}`);
+      await axiosInstance.put(`/api/users/status/${selectedUser._id}`);
       setRefresh(prev => !prev);
     } catch (error) {
       console.error("Error al eliminar usuario:", error);

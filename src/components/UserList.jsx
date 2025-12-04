@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
+import { axiosInstance } from "../config/axiosConfig";
 
 const UserList = () => {
   const [usuarios, setUsuarios] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/api/users")
-      .then((res) => res.json())
+    axiosInstance.get("/api/users")
+      .then((res) => res.data)
       .then((data) => {
         if (Array.isArray(data)) {
           setUsuarios(data);
@@ -21,20 +22,16 @@ const UserList = () => {
     if (!confirm) return;
 
     try {
-      const res = await fetch(`http://localhost:4000/api/users/status/${id}`, {
-        method: "PUT",
-      });
+      const res = await axiosInstance.put(`/api/users/status/${id}`);
 
-      const result = await res.json();
-
-      if (res.ok) {
+      if (res.status === 200) {
         alert("✅ Estado actualizado");
         setUsuarios((prev) =>
           prev.map((u) => (u._id === id ? { ...u, enabled: !u.enabled } : u))
         );
       } else {
         alert("❌ Error al cambiar estado");
-        console.error("Respuesta:", result);
+        console.error("Respuesta:", res.data);
       }
     } catch (error) {
       console.error("Error:", error);

@@ -35,7 +35,7 @@ const PerfilResidente = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get(`http://localhost:4000/api/users/${user._id}`);
+        const res = await axios.get(`/api/users/${user._id}`);
         const data = res.data;
         const direccion = `${data.house_id?.address?.street}, ${data.house_id?.address?.city}, ${data.house_id?.address?.zip}`;
         setFormData({
@@ -67,7 +67,7 @@ const PerfilResidente = () => {
   const checkUsernameUnique = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:4000/api/users/check-username?username=${formData.username}`
+        `/api/users/check-username?username=${formData.username}`
       );
       return res.data.available || res.data._id === user._id;
     } catch {
@@ -97,7 +97,7 @@ const PerfilResidente = () => {
     };
 
     try {
-      await axios.put("http://localhost:4000/api/users/update-profile", data);
+      await axios.put("/api/users/update-profile", data);
       setSnackbar({
         open: true,
         message: "Perfil actualizado correctamente",

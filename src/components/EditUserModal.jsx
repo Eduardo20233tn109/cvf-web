@@ -40,7 +40,7 @@ const EditUserModal = ({ open, onClose, user, onSave }) => {
   const [phoneError, setPhoneError] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:4000/api/houses")
+    axios.get("/api/houses")
       .then(res => {
         const housesData = Array.isArray(res.data) ? res.data : Array.isArray(res.data.data) ? res.data.data : [];
         setHouses(housesData);
@@ -57,7 +57,7 @@ const EditUserModal = ({ open, onClose, user, onSave }) => {
       return;
     }
     try {
-      const res = await axios.get(`http://localhost:4000/api/users/check-username?username=${username}`);
+      const res = await axios.get(`/api/users/check-username?username=${username}`);
       setUsernameError(res.data.exists ? "Este nombre de usuario ya está en uso." : "");
     } catch (error) {
       console.error("Error al verificar username:", error);
@@ -71,7 +71,7 @@ const EditUserModal = ({ open, onClose, user, onSave }) => {
       return;
     }
     try {
-      const res = await axios.get(`http://localhost:4000/api/users/check-phone?phone=${phone}`);
+      const res = await axios.get(`/api/users/check-phone?phone=${phone}`);
       setPhoneError(res.data.exists ? "Este teléfono ya está registrado." : "");
     } catch (error) {
       console.error("Error al verificar teléfono:", error);
@@ -95,7 +95,7 @@ const EditUserModal = ({ open, onClose, user, onSave }) => {
         house_id: values.tipoUsuario === "RESIDENTE" ? values.house_id || null : null
       };
 
-      await axios.put(`http://localhost:4000/api/users/update/${user._id}`, payload);
+      await axios.put(`/api/users/update/${user._id}`, payload);
       setSuccessMessage("Usuario actualizado correctamente");
       onSave?.();
       onClose();

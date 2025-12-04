@@ -11,7 +11,7 @@ import axios from "axios";
 // 🔍 Verifica si el username ya existe
 const checkUsernameExists = async (username) => {
   try {
-    const res = await axios.get(`http://localhost:4000/api/users/check-username?username=${username}`);
+    const res = await axios.get(`/api/users/check-username?username=${username}`);
     return res.data.exists;
   } catch (err) {
     console.error("Error al verificar username:", err);
@@ -22,7 +22,7 @@ const checkUsernameExists = async (username) => {
 // 🔍 Verifica si el número de teléfono ya existe
 const checkPhoneExists = async (phone) => {
   try {
-    const res = await axios.get(`http://localhost:4000/api/users/check-phone?phone=${phone}`);
+    const res = await axios.get(`/api/users/check-phone?phone=${phone}`);
     return res.data.exists;
   } catch (err) {
     console.error("Error al verificar teléfono:", err);
@@ -84,7 +84,7 @@ const UserModal = ({ open, onClose, onUserAdded }) => {
   const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:4000/api/houses")
+    axios.get("/api/houses")
       .then(res => {
         const housesData = Array.isArray(res.data)
           ? res.data
@@ -113,7 +113,7 @@ const UserModal = ({ open, onClose, onUserAdded }) => {
         enabled: true,
       };
 
-      await axios.post("http://localhost:4000/api/users/save", payload);
+      await axios.post("/api/users/save", payload);
       setSuccessMessage("Usuario registrado correctamente");
       resetForm();
       onClose();
