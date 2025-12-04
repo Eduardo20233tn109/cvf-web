@@ -6,6 +6,21 @@ import { API_BASE_URL } from "./env.js";
 export const axiosInstance = axios.create({
   baseURL: API_BASE_URL,
   headers: {
+    "Content-Type": "application/json"
+  }
+});
+
+// Instancia para peticiones con FormData (imágenes)
+export const axiosFormData = axios.create({
+  baseURL: API_BASE_URL,
+  headers: {
+    "Content-Type": "multipart/form-data"
+  }
+});
+
+// 🔐 Interceptor para agregar token JWT automáticamente
+const authInterceptor = (config) => {
+  const token = localStorage.getItem("token");
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
