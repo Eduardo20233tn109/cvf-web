@@ -72,8 +72,8 @@ const CasaModal = ({ open, onClose, residence, onSave }) => {
       }
 
       const url = isEditMode
-        ? `/houses/with-photo/${residence._id}`
-        : "/houses/with-photo";
+        ? `/api/houses/with-photo/${residence._id}`
+        : "/api/houses/with-photo";
 
       const method = isEditMode ? "put" : "post";
       await axiosFormData[method](url, formData);
